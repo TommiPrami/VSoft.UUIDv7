@@ -5,9 +5,8 @@
         <FrameworkType>None</FrameworkType>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Release</Config>
-        <Platform Condition="'$(Platform)'==''">Win64</Platform>
-        <ProjectName Condition="'$(ProjectName)'==''">GuidV7Demo</ProjectName>
-        <TargetedPlatforms>3</TargetedPlatforms>
+        <Platform Condition="'$(Platform)'==''">Linux64</Platform>
+        <TargetedPlatforms>131</TargetedPlatforms>
         <AppType>Console</AppType>
         <MainSource>GuidV7Demo.dpr</MainSource>
     </PropertyGroup>
@@ -15,8 +14,9 @@
         <DPMCompiler>12.0</DPMCompiler>
         <DPMCache Condition="'$(DPMCache)' == ''">$(APPDATA)\.dpm\packages</DPMCache>
         <DPM>$(DPMCache)\$(DPMCompiler)\$(Platform)</DPM>
-        <DPMSearch Condition="'$(Platform)'=='Win32'">$(DPM)\Spring4D.Benchmark\0.2.0\source;</DPMSearch>
-        <DPMSearch Condition="'$(Platform)'=='Win64'">$(DPM)\Spring4D.Benchmark\0.2.0\source;</DPMSearch>
+        <DPMSearch Condition="'$(Platform)'=='Win32'">$(DPM)\Spring4D.Benchmark\0.3.0\source;</DPMSearch>
+        <DPMSearch Condition="'$(Platform)'=='Win64'">$(DPM)\Spring4D.Benchmark\0.3.0\source;</DPMSearch>
+        <DPMSearch Condition="'$(Platform)'=='Linux64'">$(DPM)\Spring4D.Benchmark\0.3.0\source;</DPMSearch>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -225,6 +225,18 @@
                 </DeployFile>
                 <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule">
                     <Platform Name="OSX32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Linux64\Debug\GuidV7Demo" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Linux64">
+                        <RemoteName>GuidV7Demo</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Linux64\Release\GuidV7Demo" Configuration="Release" Class="ProjectOutput">
+                    <Platform Name="Linux64">
+                        <RemoteName>GuidV7Demo</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -1190,14 +1202,16 @@
                 <Platform value="Android64">False</Platform>
                 <Platform value="iOSDevice64">False</Platform>
                 <Platform value="iOSSimARM64">False</Platform>
+                <Platform value="Linux64">True</Platform>
                 <Platform value="Win32">True</Platform>
                 <Platform value="Win64">True</Platform>
             </Platforms>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
         <DPM>
-            <PackageReference id="Spring4D.Benchmark" platform="Win32" version="0.2.0"/>
-            <PackageReference id="Spring4D.Benchmark" platform="Win64" version="0.2.0"/>
+            <PackageReference id="Spring4D.Benchmark" platform="Win32" version="0.3.0"/>
+            <PackageReference id="Spring4D.Benchmark" platform="Win64" version="0.3.0"/>
+            <PackageReference id="Spring4D.Benchmark" platform="Linux64" version="0.3.0"/>
         </DPM>
     </ProjectExtensions>
     <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>

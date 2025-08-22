@@ -82,11 +82,11 @@ end;
 
 
 begin
-  test;
-//  Benchmark(BM_CreateV4, 'TGuid.NewGuid');
-//  Benchmark(BM_CreateV7, 'TGuidV7Helper.CreateV7');
-//  Benchmark(BM_CreateV7_DT, 'TGuidV7Helper.CreateV7(datetime)');
-//  // Run the benchmark
-//  Benchmark_Main;
+//  test;
+  Benchmark(BM_CreateV4, 'TGuid.NewGuid');
+  Benchmark(BM_CreateV7, 'TGuidV7Helper.CreateV7');
+  Benchmark(BM_CreateV7_DT, 'TGuidV7Helper.CreateV7(datetime)');
+  // Run the benchmark
+  Benchmark_Main;
   readln;
 end.

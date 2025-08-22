@@ -17,6 +17,8 @@ implementation
 uses
   {$IFDEF MSWINDOWS}
   WinApi.Windows,
+  {$ELSE}
+  Posix.Systime,
   {$ENDIF}
   System.DateUtils,
   System.SysUtils;
@@ -35,16 +37,20 @@ begin
   result := (UInt64(ft) - UInt64(TimeOffset)) div 10000;
 end;
 {$ELSE}
-//TODO : find an implementation of this for non windows platforms in earlier versions
-// NowUtc only available in 11.3 or later.
-// this is slow.
-function UNIXTimeInMilliseconds: UInt64;inline;
+function UNIXTimeInMilliseconds: UInt64; inline;
 var
-  DT: TDateTime;
+  Ltv: timeval;
 begin
-  DT := TDateTime.NowUTC;
-  Result := MilliSecondsBetween(DT, UnixDateDelta);
+  gettimeofday(Ltv, nil);
+  Result := Ltv.tv_sec * 1000 + Ltv.tv_usec div 1000;
 end;
+//function UNIXTimeInMilliseconds: UInt64;inline;
+//var
+//  DT: TDateTime;
+//begin
+//  DT := TDateTime.NowUTC;
+//  Result := MilliSecondsBetween(DT, UnixDateDelta);
+//end;
 {$ENDIF}
 
 function DateTimeToUNIXTimeInMilliseconds(const dt : TDateTime): UInt64;inline;
