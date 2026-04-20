@@ -1,0 +1,36 @@
+# DPM package spec file
+# Used to build packages
+
+min client version: 1.0
+# metadata describes the package to the user
+metadata:
+  id: VSoft.UUIDv7
+  version: 1.2.2
+  authors: [ Vincent Parrett ]
+  description: A Delphi implementation of UUID v7 Generator
+  projectUrl: https://github.com/VSoftTechnologies/VSoft.UUIDv7
+  repositoryUrl: https://github.com/VSoftTechnologies/VSoft.UUIDv7
+  license: Apache-2.0
+  readme: README.md
+  copyright: Vincent Parrett and contributors
+  tags: [ UUIDv7, UUID, Guid ]
+  repositoryCommit: #HASH#
+
+targetPlatforms:
+  - compiler from: delphixe2
+    compiler to: delphi10.4
+    platforms: [ win32, win64 ]
+  - compiler from: delphi11
+    compiler to: delphi13
+    platforms: [ win32, win64 ]
+
+templates:
+  - name: default
+
+    source:
+      - src: ./LICENSE.txt
+      - src: ./source/*.pas
+      - src: ./packages/VSoft.UUIDv7R.dpk
+      - src: ./packages/VSoft.UUIDv7R.dproj
+    build:
+      - project: ./packages/VSoft.UUIDv7R.dproj

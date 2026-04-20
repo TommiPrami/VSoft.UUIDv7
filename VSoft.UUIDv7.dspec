@@ -2,7 +2,7 @@
  "metadata": {
   "id": "VSoft.UUIDv7",
   "version": "1.2.2",
-  "description": "A Delphi implementation of UUID v7 Generator.\r\n",
+  "description": "A Delphi implementation of UUID v7 Generator",
   "authors": "Vincent Parrett",
   "projectUrl": "https://github.com/VSoftTechnologies/VSoft.UUIDv7",
   "repositoryUrl": "https://github.com/VSoftTechnologies/VSoft.UUIDv7",

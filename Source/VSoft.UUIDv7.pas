@@ -26,7 +26,6 @@ uses
 
 
 {$IFDEF MSWINDOWS}
-//This is substantially faster.
 function UNIXTimeInMilliseconds: UInt64;inline;
 const
   TimeOffset = 116444736000000000;
@@ -44,13 +43,7 @@ begin
   gettimeofday(Ltv, nil);
   Result := Ltv.tv_sec * 1000 + Ltv.tv_usec div 1000;
 end;
-//function UNIXTimeInMilliseconds: UInt64;inline;
-//var
-//  DT: TDateTime;
-//begin
-//  DT := TDateTime.NowUTC;
-//  Result := MilliSecondsBetween(DT, UnixDateDelta);
-//end;
+
 {$ENDIF}
 
 function DateTimeToUNIXTimeInMilliseconds(const dt : TDateTime): UInt64;inline;
