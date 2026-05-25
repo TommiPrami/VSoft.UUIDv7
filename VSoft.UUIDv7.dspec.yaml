@@ -16,21 +16,20 @@ metadata:
   tags: [ UUIDv7, UUID, Guid ]
   repositoryCommit: #HASH#
 
+variables:
+  packageSource: Rad Studio $compilernoprefix$
+
 targetPlatforms:
   - compiler from: delphixe2
-    compiler to: delphi10.4
-    platforms: [ win32, win64 ]
-  - compiler from: delphi11
-    compiler to: delphi13
+    compiler to: delphi13.0
     platforms: [ win32, win64 ]
 
 templates:
   - name: default
-
     source:
       - src: ./LICENSE.txt
       - src: ./source/*.pas
-      - src: ./packages/VSoft.UUIDv7R.dpk
-      - src: ./packages/VSoft.UUIDv7R.dproj
+      - src: ./packages/$packageSource$/VSoft.UUIDv7R.dpk
+      - src: ./packages/$packageSource$/VSoft.UUIDv7R.dproj
     build:
-      - project: ./packages/VSoft.UUIDv7R.dproj
+      - project: ./packages/$packageSource$/VSoft.UUIDv7R.dproj

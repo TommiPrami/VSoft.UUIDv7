@@ -1,4 +1,4 @@
-package VSoft.UUIDv7R;
+﻿package VSoft.UUIDv7R;
 
 {$R *.res}
 {$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
@@ -25,12 +25,13 @@ package VSoft.UUIDv7R;
 {$IMAGEBASE $400000}
 {$DEFINE DEBUG}
 {$ENDIF IMPLICITBUILDING}
-{$IMPLICITBUILD ON}
+{$LIBSUFFIX AUTO}
+{$RUNONLY}
+{$IMPLICITBUILD OFF}
 
 requires
   rtl;
 
 contains
-  VSoft.UUIDv7 in '..\Source\VSoft.UUIDv7.pas';
-
+  VSoft.UUIDv7 in '..\..\source\VSoft.UUIDv7.pas';
 end.
